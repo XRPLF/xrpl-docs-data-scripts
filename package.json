@@ -1,0 +1,17 @@
+{
+    "name": "xrpl-docs-data-scripts",
+    "version": "0.0.1",
+    "license": "MIT",
+    "scripts": {
+        "make-data": "node main.js"
+    },
+    "dependencies": {
+        "dotenv": "^17.2.3",
+        "express": "^5.2.1",
+        "xrpl": "^4.4.0"
+    },
+    "devDependencies": {
+        "standard": "*"
+    },
+    "type": "module"
+}
