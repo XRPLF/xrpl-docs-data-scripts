@@ -6,8 +6,8 @@ import { checkEnvVars } from '../src/check-env-vars.js'
 
 if (checkEnvVars()) { process.exit(1) }
 
-const PORT = 5067
-const FUND_AMT = xrpToDrops(1000)
+const PORT = process.env.FAUCET_PORT || 6061
+const FUND_AMT = xrpToDrops(process.env.FUND_XRP || 1000)
 const FAUCET_ADDRESS = process.env.FAUCET_ADDRESS || 'rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh'
 const FAUCET_SEED = process.env.FAUCET_SEED || 'snoPBrXtMeMyMHUVTgbuqAfg1SUTb'
 const FAUCET_KEY_TYPE = process.env.FAUCET_KEY_TYPE || 'secp256k1'
@@ -74,4 +74,6 @@ app.post('/accounts', async (req, res) => {
   res.send(reply)
 })
 
-app.listen(PORT, () => { console.log('Faucet server up') })
+app.listen(PORT, () => { console.log(
+  `Faucet server up and running at http://localhost:${PORT}/accounts`
+) })

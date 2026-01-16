@@ -11,7 +11,7 @@ const SPREAD = 0.149
 const TOTAL_TST = 1000000000
 const TST_ISSUER = 'rP9jPyP5kyvFRb6ZiRghAGw5u8SGAmU4bd'
 
-export async function setupTSTIssuer (wsUrl) {
+export async function setupTSTIssuer (wsUrl, faucetOptions) {
   console.log('-------- Setting up TST issuer ----------------------------------')
   if (!process.env.TST_SEED || process.env.TST_SEED.slice(0, 1) !== 's') {
     console.error('❌ TST_SEED env var unavailable or incorrect:', process.env.TST_SEED)
@@ -27,11 +27,8 @@ export async function setupTSTIssuer (wsUrl) {
   await client.connect()
 
   console.log('  funding issuer from faucet...')
-  const faucetResponse = await client.fundWallet(wallet, {
-    faucetHost: 'localhost:5067',
-    faucetPath: '/accounts'
-  })
-  console.log(faucetResponse) // TODO: check success
+  await client.fundWallet(wallet, faucetOptions) // Throws on error, probably.
+  console.log('  ✅ TST issuer funded.')
 
   console.log('  setting Default Ripple flag...')
   const defaultRippleAccountSet = {
