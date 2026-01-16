@@ -4,6 +4,7 @@
     "license": "MIT",
     "scripts": {
         "make-data": "node main.js",
+        "test-only": "node main.js test-only",
         "faucet": "node util/quick-faucet.js"
     },
     "dependencies": {

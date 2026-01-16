@@ -41,6 +41,7 @@ export async function setupTSTIssuer (wsUrl, faucetOptions) {
     console.log('  ✅ TST issuer Default Ripple enabled.')
   } else {
     console.error('  ❌ Error setting Default Ripple:', response1.result)
+    client.disconnect()
     return 3
   }
 
@@ -61,6 +62,7 @@ export async function setupTSTIssuer (wsUrl, faucetOptions) {
     console.log('  ✅ TST sell (issuing) offer placed.')
   } else {
     console.error('  ❌ Error placing TST sell offer:', response2.result)
+    client.disconnect()
     return 4
   }
 
@@ -80,6 +82,7 @@ export async function setupTSTIssuer (wsUrl, faucetOptions) {
     console.log('  ✅ TST buy (redemption) offer placed.')
   } else {
     console.error('  ❌ Error placing TST buy offer:', response3.result)
+    client.disconnect()
     return 5
   }
 
