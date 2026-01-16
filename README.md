@@ -23,6 +23,12 @@ With both of those in place, you can run the scripts:
 npm run make-data
 ```
 
+You can also run _just_ the read-only checks on network status, even without a faucet:
+
+```sh
+npm run test-only
+```
+
 ### Network Setup - Stand-Alone Mode
 
 You can test this using an XRP Ledger core server (`rippled` or `xrpld`) in stand-alone mode. First, start the server:
@@ -42,7 +48,6 @@ In stand-alone mode, the server won't close new ledgers automatically because th
 ```sh
 watch -n 3 rippled ledger_accept
 ```
-
 
 ### Network Setup - Private Network with Docker
 
@@ -85,5 +90,8 @@ You can configure the faucet with the following vars:
 ## Summary of Scripts Included
 
 1. `check-env-vars.js` - Confirms that certain environment variables, necessary for these scripts to run, are defined properly.
-2. `tst-offer-setup.js` - Ensures that the **TST Issuer** rP9jPyP5kyvFRb6ZiRghAGw5u8SGAmU4bd is funded and there are offers to buy and sell TST for XRP at a well-defined exchange rate and spread. These are used in DEX tutorials.
+2. `check-genesis-account.js` - Check the status of the genesis account to see if it has readily-available XRP. (Read-only)
+3. `check-amendments.js` - Compare amendment status to Mainnet to see if this network is missing any amendments that are enabled on Mainnet. (Read-only)
+4. `check-reserves.js` - Compare reserves and base transaction to see if this network's settings match Mainnet's. (Read-only)
+5. `tst-offer-setup.js` - Ensures that the **TST Issuer** rP9jPyP5kyvFRb6ZiRghAGw5u8SGAmU4bd is funded and there are offers to buy and sell TST for XRP at a well-defined exchange rate and spread. These are used in DEX tutorials.
 
