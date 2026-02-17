@@ -2,8 +2,6 @@
 
 The scripts contained in this repository re-create specific persistent data in an [XRP Ledger (XRPL)](https://xrpl.org) test network after that network has been reset, so that XRPL documentation can depend on the existence of that data.
 
-***WARNING: This depends on the `faucetProtocol` parameter from [xrp.js PR #3186](https://github.com/XRPLF/xrpl.js/pull/3186). It won't work out of the box until that change is part of an xrpl.js release and the `package.json` is updated accordingly.***
-
 ## Setup & Usage
 
 These scripts require Node.js (LTS) and `npm`.
