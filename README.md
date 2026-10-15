@@ -92,4 +92,4 @@ You can configure the faucet with the following vars:
 3. `check-amendments.js` - Compare amendment status to Mainnet to see if this network is missing any amendments that are enabled on Mainnet. (Read-only)
 4. `check-reserves.js` - Compare reserves and base transaction to see if this network's settings match Mainnet's. (Read-only)
 5. `tst-offer-setup.js` - Ensures that the **TST Issuer** rP9jPyP5kyvFRb6ZiRghAGw5u8SGAmU4bd is funded and there are offers to buy and sell TST for XRP at a well-defined exchange rate and spread. These are used in DEX tutorials.
-
+6. `tst-receiver-setup.js` - Ensures that the **TST Receiver** rG6ZCtKCURU58DP2iiff4qziApBGSuvPqE is funded and has a TST trust line with the maximum limit, so tutorials can send TST to a known account without holding its keys. Used in the Send a Trust Line Token tutorial.

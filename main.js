@@ -5,6 +5,7 @@ import { checkGenesisAccount } from './src/check-genesis-account.js'
 import { checkAmendments } from './src/check-amendments.js'
 import { checkReserves } from './src/check-reserves.js'
 import { setupTSTIssuer } from './src/tst-offer-setup.js'
+import { setupTSTReceiver } from './src/tst-receiver-setup.js'
 
 const args = process.argv.slice(2)
 const testOnly = (args.length && args[0] === 'test-only')
@@ -19,5 +20,6 @@ await checkReserves(process.env.WS_URL)
 if (testOnly) { process.exit(0) }
 // Scripts that create data below.
 if (await setupTSTIssuer(process.env.WS_URL, faucetOptions)) { process.exit(1) }
+if (await setupTSTReceiver(process.env.WS_URL, faucetOptions)) { process.exit(1) }
 
 console.log('======== All setup scripts done 🎉 ==============================')
